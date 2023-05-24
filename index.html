@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
+      integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      var moment = require("moment");
+
+      // Define the start and end months
+      var startMonth = "December 2023";
+      var endMonth = "March 2024";
+
+      // Create Moment.js objects for the start and end months
+      var startDate = moment(startMonth, "MMMM YYYY");
+      var endDate = moment(endMonth, "MMMM YYYY");
+
+      // Array to store the resulting months
+      var monthsArray = [];
+
+      // Loop through the months from start to end, adding them to the array
+      while (startDate.isSameOrBefore(endDate)) {
+        monthsArray.push(startDate.format("MMMM YYYY"));
+        startDate.add(1, "month");
+      }
+
+      // Output the resulting months
+      console.log(monthsArray);
+    </script>
+  </head>
+  <body>
+    <h1>
+      This is a static template, there is no bundler or bundling involved!
+    </h1>
+  </body>
+</html>
